@@ -4,11 +4,7 @@ data "aws_ami" "amazon_ami" {
 
   filter {
     name   = "name"
-    values = ["al2023-ami-*-x86_64"]
-  }
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
+    values = ["al2023-ami-2023.8.20250707.0-kernel-6.1-x86_64"]
   }
   filter {
     name   = "virtualization-type"
@@ -22,20 +18,16 @@ data "aws_ami" "amazon_ami" {
 
 data "aws_ami" "ubuntu_ami" {
   most_recent = true
-  owners      = ["099720109477"] 
+  owners      = ["amazon"] 
 
   filter {
     name   = "name"
     values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
   }
   filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
-  filter {
     name   = "virtualization-type"
     values = ["hvm"]
-  }
+  }  
   filter {
     name   = "root-device-type"
     values = ["ebs"]
@@ -51,7 +43,7 @@ output "ubuntu_2204_ami_id" {
 }
 
 resource "aws_instance" "instance1" {
-  ami = data.aws_ami.amazon_ami.id
+  ami = data.aws_ami.amazon_ami.id   
   instance_type = "t2.micro"
   subnet_id = aws_subnet.public1.id
   vpc_security_group_ids = [aws_security_group.allow_ports.id]
@@ -62,7 +54,7 @@ resource "aws_instance" "instance1" {
   }
 }
 resource "aws_instance" "instance2" {
-  ami = data.aws_ami.amazon_ami.id
+  ami = data.aws_ami.ubuntu_ami.id  
   instance_type = "t2.micro"
   subnet_id = aws_subnet.public2.id
   vpc_security_group_ids = [aws_security_group.allow_ports.id]
