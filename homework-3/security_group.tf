@@ -27,6 +27,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_in_80" {
 }
 
 
+
 # Allow outbound traffic
 resource "aws_vpc_security_group_egress_rule" "allow_out_22" {
   security_group_id = aws_security_group.allow_ports.id
