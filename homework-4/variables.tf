@@ -30,6 +30,17 @@ variable open_ports {
   nullable    = true
 }
 
+variable ec2_info {
+  description = "Choose AMI and instance types"
+  type = map(string)
+  default = {
+      ami_id_1 = ""
+      instance_type_1 = ""
+      ami_id_2 = ""
+      instance_type_2 = ""
+  }
+}
+
 variable vpc {
     description = "Inputs for: cidr block for VPC, enable dns support, enable dns hostnames"
     default = [{
@@ -81,15 +92,3 @@ variable subnet {
       }
     ))
 }
-
-variable ami_id {
-  description = "AMI"
-  type = map(string)
-  default = {
-      ami_id = "ami-05ffe3c48a9991133"
-      instance_type = "t2.micro"
-      subnet_id = "subnet-0d355a9acf56f88a6"
-  }
-  
-}
-
