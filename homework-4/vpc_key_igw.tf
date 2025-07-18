@@ -13,6 +13,8 @@ resource "aws_key_pair" "bastion" {
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.kaizen.id
-  tags = {Name = var.igw_name}
+  tags = {
+    Name = var.igw_name
+  }
 }
 
