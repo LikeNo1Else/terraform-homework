@@ -1,6 +1,6 @@
 ```hcl
 # Example of file terraform.tfvars and possible input settings 
-# Choose region whre create VPC
+# Choose region where to create VPC
 region = "us-west-2"
 
 # Create name for key pair in region you choose
