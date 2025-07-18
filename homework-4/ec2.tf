@@ -45,21 +45,15 @@ output "ubuntu_2204_ami_id" {
 resource "aws_instance" "instance1" {
   ami = data.aws_ami.amazon_ami.id   
   instance_type = "t2.micro"
-  subnet_id = aws_subnet.public1.id
+  subnet_id = aws_subnet.subnet1.id
   vpc_security_group_ids = [aws_security_group.allow_ports.id]
-
-  tags = {
-    Name = "Amazon-Apache"
-  }
+  tags = local.alexander_tags
 }
 resource "aws_instance" "instance2" {
   ami = data.aws_ami.ubuntu_ami.id  
   instance_type = "t2.micro"
-  subnet_id = aws_subnet.public2.id
+  subnet_id = aws_subnet.subnet2.id
   vpc_security_group_ids = [aws_security_group.allow_ports.id]
- 
-  tags = {
-    Name = "Ubuntu-Apache"
-  }
+  tags = local.alexander_tags
 }
 
