@@ -1,18 +1,18 @@
 variable region {
     description = "Choose region for your aws host"
-    default = "us-west-2"
+    default = ""
     type = string
 }
 
 variable key_name{
     description = "Provide name for your key in choosen region"
-    default = "key-name"
+    default = ""
     type = string
 }
 
 variable igw_name{
     description = "Provide name for your IGW"
-    default = "homework-igw"
+    default = ""
     type = string
 }
 
