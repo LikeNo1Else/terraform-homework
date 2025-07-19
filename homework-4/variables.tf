@@ -57,7 +57,14 @@ variable vpc {
 
 variable subnet {
     description = "For subnet get: cidr block, availability zone, auto-assign public IP and name"
-    default = [
+      type = list(object(
+       {
+        cidr = string
+        az = string 
+        get_public_ip = bool
+        name = string
+       }
+     default = [
       {
         cidr = ""
         az = ""
@@ -83,12 +90,5 @@ variable subnet {
         name = ""
       }     
     ]
-    type = list(object(
-      {
-        cidr = string
-        az = string 
-        get_public_ip = bool
-        name = string
-      }
     ))
 }
