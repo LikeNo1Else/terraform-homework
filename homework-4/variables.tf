@@ -63,7 +63,7 @@ variable subnet {
         az = string 
         get_public_ip = bool
         name = string
-       }
+       }))
      default = [
       {
         cidr = ""
@@ -88,7 +88,5 @@ variable subnet {
         az = ""
         get_public_ip = false
         name = ""
-      }     
-    ]
-    ))
+      }]
 }
