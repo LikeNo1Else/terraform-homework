@@ -58,9 +58,6 @@ resource "aws_route_table_association" "rta_3" {
   route_table_id = aws_route_table.public_rt.id
 }
 
-output vpc {
-  value = aws_vpc.kaizen.id
-} 
 output subnet1 {
   value = aws_subnet.subnet1.id
 } 
