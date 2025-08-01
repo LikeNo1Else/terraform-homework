@@ -1,4 +1,5 @@
-## Example of file 'terraform.tfvars' for Oregon region
+### Example of file 'terraform.tfvars' for Oregon region
+
 
 ```hcl
 # Choose region where to create VPC:
