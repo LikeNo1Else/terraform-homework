@@ -2,7 +2,6 @@ provider "aws" {
     region = var.region
 }
 
-
 module vpc {
   source      = "../vpc"
   region = var.region
@@ -10,7 +9,6 @@ module vpc {
   subnet = var.subnet
   environment = var.environment
 }
-
 
 module ec2_first {
   source      = "../ec2"
